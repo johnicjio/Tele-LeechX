@@ -6,6 +6,7 @@ import aria2p
 import re
 
 from tobrot import LOGGER, DOWNLOAD_LOCATION
+from aria2p import API as ariaAPI, Client as ariaClient
 from pyrogram import Client
 from typing import Tuple
 
@@ -37,8 +38,8 @@ def clean_all():
     except FileNotFoundError:
         pass
 
-aria2 = aria2p.API( 
-    aria2p.Client(
+aria2 = ariaAPI(
+    ariaClient(
         host="http://localhost",
         port=6800,
         secret="",
